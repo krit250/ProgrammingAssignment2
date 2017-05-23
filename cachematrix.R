@@ -30,7 +30,7 @@ makeCacheMatrix <- function(x = matrix()) {
   
 }
 
-
+### makeCacheMatrix: Function created for "matrix" object that can cache its inverse ###
 makeCacheMatrix <- function(x = numeric()) {
   m <- NULL
   set <- function(y) {
@@ -46,11 +46,11 @@ makeCacheMatrix <- function(x = numeric()) {
 }
 
 
-# This function uses the argument returned from makeCacheMatrix to retrieve thr inverse matrix from the cached value 
+### This function uses argument returned 4m makeCacheMatrix to retrieve inverse matrix 4m cached value ###
 cacheSolve <- function(x, ...) {
   m <- x$getsolve()
   if(!is.null(m)) {
-    mesage("getting cached data")
+    message("getting cached data")
     return(m)
   }
   data <- x$get()
@@ -59,10 +59,10 @@ cacheSolve <- function(x, ...) {
   m
 }
 
-############ TO VERIFY USE THE CODE BELOW ##############
-M <- matrix(1:4, nrow = 2, ncol = 2) # Creates an invertible matrix M. If using another matrix, make sure it's inevrtible
-aMatrix <- makeCacheMatrix(M) # Input M to makeCacheMatrix function
-aMatrix$get() # Retrieve the value of matrix
-cacheSolve(aMatrix) # Get the inverse of M
-invM <- aMatrix$getsolve() # Create inverse matrix of M from its CACHED value
-M %*% invM # Multiply M by its inverse to get identity (note %*% is the operator to multiply matrices)
+#### USE BELOW CODE FOR VERIFICATION ####
+M <- matrix(1:4, nrow = 2, ncol = 2) ## Creates an inverse matrix M ##
+aMatrix <- makeCacheMatrix(M) # Input M to makeCacheMatrix function #
+aMatrix$get() # Retrieve the value of matrix #
+cacheSolve(aMatrix) # Get the inverse of M #
+invM <- aMatrix$getsolve() # Create inverse matrix of M from its CACHED value #
+M %*% invM ## Multiply M by its inverse to get identity ##
